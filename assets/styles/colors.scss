@@ -1,0 +1,16 @@
+$white: #fff;
+$lightgrey: #e5e5e5;
+$grey: #717171;
+$red: #F7402E;
+$lightgreen: #48B04B;
+
+$darkblue: #314c98;
+
+$cyan: #35d0b9;
+$lightcyan: #58ebd8;
+$light-medium-cyan: #32CCBC;
+$darkcyan: #007d66;
+
+$primary: linear-gradient( 135deg, #{$lightcyan} 3%, #{$darkcyan} 100%);
+$secondary: linear-gradient( 135deg, #{$cyan}  10%, #{$darkblue} 100%);
+$banner-gradient: linear-gradient( 135deg, #{$lightcyan} 10%, #{$darkblue} 100%);

@@ -1,0 +1,133 @@
+/*Fluent font*/
+$min_width: 340px;
+$max_width: 3840px;
+$min_font: 16px;
+$max_font: 24px;
+
+/*Layout variables*/
+$button-font-size: 1rem;
+$button-padding: 0.5rem;
+$button-border-radius: 0.24rem;
+
+$content-padding-sm : 0.25rem;
+$content-padding-md : 0.75rem;
+$content-padding-lg: 1.25rem;
+
+$content-margin-sm: 0.25rem;
+$content-margin-md: 0.5rem;
+$content-margin-lg: 0.75rem;
+
+$content-border-radius: 0.24rem;
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin font($font-name) {
+  font-family: $font-name, sans-serif;
+}
+
+@mixin hr-gradient-horizontal($color) {
+  margin: $content-margin-lg auto;
+  width: 20%;
+  border: 0;
+  height: 2px;
+  background: linear-gradient(to right, rgba($color, 0), rgba($color, .75), rgba($color, 0));
+}
+
+@mixin hr-gradient-vertical($color) {
+  margin: $content-margin-lg;
+  width: 2px;
+  border: 0;
+  height: 80%;
+  background: linear-gradient(to bottom, rgba($color, 0), rgba($color, .75), rgba($color, 0));
+}
+
+@mixin tile--box-shadow {
+  box-shadow: .2rem .2rem .2rem 0 rgba(0, 0 ,0 , .3);
+}
+
+@mixin tile {
+  padding: $content-padding-lg;
+  margin: $content-margin-md;
+  border-radius: $content-border-radius;
+}
+
+@mixin tile--inverted {
+  background: $white;
+  color: $darkcyan;
+  border: 1px solid $lightgrey;
+}
+
+/* Media Queries*/
+@mixin phone {
+  @media (min-width: 675px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 760px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin desktop-l {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: 1700px) {
+    @content;
+  }
+}
+
+/* Animations */
+@mixin animation-grow {
+  transition: all .5s;
+  transform-origin: 50% 50%;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+  }
+}
+
+@mixin animation-fade-in {
+  animation: 2.5s appear;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

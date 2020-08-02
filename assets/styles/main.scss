@@ -1,0 +1,132 @@
+/* Default layout for the page - includes style reset from browser provided default css
+* and add`s custom layout styles
+*/
+@import 'mixins';
+@import 'colors';
+
+@font-face {
+  @include font('Open Sans');
+  src: url('/assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype'),
+  url('/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype')
+}
+
+
+@font-face {
+  @include font('Montserrat');
+  src: url('/assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype')
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+html, body{
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  @include font('Montserrat');
+  margin: 0;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 0 5%;
+}
+
+#main-header {
+  flex: 0 0 auto;
+}
+
+#main-footer {
+  flex: 0 0 auto;
+  height: 8rem;
+  padding: 0 $content-padding-lg;
+}
+
+h1, h2, h3, h4 ,h5, h6 {
+  @include font('Open Sans');
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+ font-size: 1rem;
+}
+
+input:not([type=submit]):not([type=file]) {
+  border: none;
+  border-bottom: 1px solid $darkcyan;
+  height: 2rem;
+}
+
+input:not([type=submit]):not([type=file]),
+textarea {
+  &:focus{
+    outline: $darkblue 0.1rem solid;
+  }
+}
+
+.button {
+  font-size: $button-font-size;
+  font-weight: bold;
+  padding: $button-padding;
+  border: none;
+  border-radius: $button-border-radius;
+  @include tile--box-shadow;
+}
+
+.button--primary {
+  background: $primary;
+  color: $white;
+  &:hover,&:active,&.nuxt-link-active {
+    cursor: pointer;
+    background: $banner-gradient;
+    color: $white;
+  }
+  &:disabled {
+    cursor: default;
+    background: $lightgrey;
+    color: $grey;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.link {
+  text-decoration: none;
+  text-align: center;
+}
+
+.link--button {
+  background: $primary;
+  border-radius: $button-border-radius;
+  padding: $content-padding-sm;
+  color: $white;
+  &:hover,&:active {
+    cursor: pointer;
+    background: $banner-gradient;
+    color: $white;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.page-title {
+  text-decoration: underline;
+}
