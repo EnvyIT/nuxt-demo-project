@@ -1,23 +1,3 @@
-# WDP Projekt von EDER Michael
-
-* Projekt-Name: EnvyIT - Homepage
-* Projekt-Typ: Website
-* Gruppenprojekt: Nein
-* Externe JS/CSS Bibliotheken: 
-    * Nuxt.js - Website als Universal App
-    * Vue.js (Grundlage für Nuxt.js)
-    * Vuelidate.js (Validierung für Nuxt.js)
-    * Vuex (State Management basierend auf dem Flux-Pattern)
-    * i18n-Module für Nuxt (Internationalisiert auf Englisch/Deutsch)
-    * SASS in Form von SCSS
-    
-* Zeitaufwand (h): ca. 100h  (Einarbeitung in Vue.js / Nuxt.js ca. 50% Anteil)
-
-## Projektbeschreibung
-"Implementierung einer eigenen Homepage, um als Developer präsent zu sein.
-Die Webseite besteht aus diversen Pages (Über mich, Lebenslauf, Blog, Kontaktformular)."
-
-
 ## Build Setup
 
 ``` bash
